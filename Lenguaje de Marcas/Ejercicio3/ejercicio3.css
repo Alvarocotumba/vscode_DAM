@@ -1,0 +1,85 @@
+button,
+label,
+input,
+select {
+    margin-bottom: 15px;
+    display: block;
+}
+
+body {
+    font-family: Arial;
+    background-color: rgb(148, 196, 196);
+    margin: 40px;
+}
+
+h1 {
+    color: rgb(130, 108, 150);
+    font-size: 30px;
+}
+
+button[id="cargar"] {
+    padding: 8px;
+    background-color: chocolate;
+    color: white;
+    border: none;
+    border-radius: 40px;
+}
+
+input[id="buscar"] {
+    padding: 6px;
+    border: 1px solid rgb(201, 201, 42);
+    border-radius: 40px;
+}
+
+select[id="select"] {
+    padding: 6px;
+    border-radius: 40px;
+}
+
+button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid orange;
+}
+
+div[data-task] {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 40px;
+}
+
+div[data-status="pendiente"] {
+    background-color: antiquewhite;
+}
+
+div[data-status="hecha"] {
+    background-color: blanchedalmond;
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+div[data-priority="alta"] {
+    border-left: 5px solid red;
+}
+
+div[data-priority="media"] {
+    border-left: 5px solid rgb(228, 196, 13);
+}
+
+div[data-priority="baja"] {
+    border-left: 5px solid green;
+}
+
+button[data-id] {
+    margin-top: 16px;
+    background-color: burlywood;
+}

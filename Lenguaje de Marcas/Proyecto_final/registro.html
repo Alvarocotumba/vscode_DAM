@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Registro - Mi Galería</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin:20px; background:#f2f2f2; }
+    form { background:white; padding:20px; border-radius:8px; max-width:420px; margin:auto; box-shadow:0 1px 6px rgba(0,0,0,0.1); }
+    label { display:block; margin-top:10px; font-weight:600; }
+    input, select { width:100%; padding:8px; margin-top:6px; box-sizing:border-box; }
+    button { margin-top:12px; padding:10px 14px; }
+  </style>
+</head>
+<body>
+  <h2>Registro de usuario</h2>
+
+  <form id="regForm">
+    <label>Nombre completo
+      <input type="text" id="fullname" required>
+    </label>
+
+    <label>Correo
+      <input type="email" id="email" required>
+    </label>
+
+    <label>Contraseña
+      <input type="password" id="password" minlength="6" required>
+    </label>
+
+    <label>Categoría favorita
+      <select id="favCat">
+        <option value="">-- Elige --</option>
+        <option>Frutas</option>
+        <option>Cítricos</option>
+        <option>Bayas</option>
+        <option>Exóticas</option>
+      </select>
+    </label>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <dialog id="confirmDialog">
+    <p>Registro realizado correctamente.</p>
+    <menu>
+      <button id="closeAndGo">Cerrar y volver a galería</button>
+    </menu>
+  </dialog>
+
+<script>
+/* Comentario: Validación JS básica del formulario, muestra <dialog> y redirige. */
+const form = document.getElementById('regForm');
+const dialog = document.getElementById('confirmDialog');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('fullname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const pass = document.getElementById('password').value;
+  if (!name || !email || pass.length < 6) {
+    alert('Rellena todos los campos correctamente. La contraseña debe tener 6 caracteres como mínimo.');
+    return;
+  }
+  if (typeof dialog.showModal === "function") {
+    dialog.showModal();
+  } else {
+    alert('Registro correcto');
+    window.location.href = 'index.html';
+  }
+});
+
+document.getElementById('closeAndGo').addEventListener('click', function(){
+  dialog.close();
+  window.location.href = 'index.html';
+});
+</script>
+</body>
+</html>
+""")
+
+

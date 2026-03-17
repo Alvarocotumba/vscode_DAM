@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de usuarios</title>
+    <link rel="stylesheet" href="ejercicio2.css">
+</head>
+<body>
+
+    <h1>Gestion de usuarios</h1>
+
+    <div data-user="1" data-status="activo" data-role="admin">
+        <p>Usuario 1</p>
+        <button data-action="toggle">Activar / Desactivar</button>
+        <button data-action="ROLE">Cambiar rol</button>
+    </div>
+
+    <div data-user="2" data-status="inactivo" data-role="usuario">
+    <p>Usuario 2</p>
+    <button data-action="toggle">Activar / Desactivar</button>
+    <button data-action="role">Cambiar rol</button>
+    </div>
+
+    <div data-user="3" data-status="activo" data-role="usuario">
+    <p>Usuario 3</p>
+    <button data-action="toggle">Activar / Desactivar</button>
+    <button data-action="role">Cambiar rol</button>
+    </div>
+
+    <p id="mensaje"></p>
+
+    <script src="ejercicio2.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<encuesta>
+    <estado>abierta</estado>
+    <total_votos>0</total_votos>
+    <ganador>-</ganador>
+    <deportes>
+        <deporte>
+            <nombre>Fútbol</nombre>
+            <id>futbol</id>
+            <votos>0</votos>
+        </deporte>
+        <deporte>
+            <nombre>Baloncesto</nombre>
+            <id>baloncesto</id>
+            <votos>0</votos>
+        </deporte>
+        <deporte>
+            <nombre>Tenis</nombre>
+            <id>tenis</id>
+            <votos>0</votos>
+        </deporte>
+        <deporte>
+            <nombre>Natación</nombre>
+            <id>natacion</id>
+            <votos>0</votos>
+        </deporte>
+        <deporte>
+            <nombre>Atletismo</nombre>
+            <id>atletismo</id>
+            <votos>0</votos>
+        </deporte>
+        <deporte>
+            <nombre>Ciclismo</nombre>
+            <id>ciclismo</id>
+            <votos>0</votos>
+        </deporte>
+    </deportes>
+</encuesta>

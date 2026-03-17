@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(92, 89, 89);
+    line-height: 1.5;
+}
+
+.portfolio-container{
+    display: grid;
+    grid-template-areas:
+    "header"
+    "hero"
+    "proyectos"
+    "sobre-mi"
+    "footer"
+    ;
+grid-template-rows: repeat(5, auto);
+min-height: 100vh; /* Ocupa toda la altura de la ventana*/
+}
+
+.header{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: white;
+    color: rgb(34, 58, 10);
+    box-shadow: 0 10px 30px black;
+}
+
+.logo{
+    font-size: 15px;
+    font-weight: bold; /*Negrita*/
+}
+
+.nav{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+    justify-self: end; /*Colocar grid a la izquierda*/
+}
+
+.nav a:hover{
+    color:#3498db
+}
+
+.hero {
+    grid-area: hero;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 5rem 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.hero h1{
+font-size: 3rem;
+margin-bottom: 1rem;
+}
+
+.hero p{
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.hero button{
+    padding: 5px 3px;
+    font-size: 15px;
+    background-color: rgb(109, 107, 6);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.proyectos{
+    grid-area: proyectos;
+    padding: 5px;
+    background-color: rgb(104, 53, 53);
+}
+
+.proyectos h2{
+    font-size: 40px;
+    text-align: center;
+    color: antiquewhite;
+}
+
+.proyectos-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.proyecto{
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.proyecto img{
+    width: 100%;
+    height: 300px;
+}
+
+.sobre-mi{
+    grid-area: sobre-mi;
+    padding: 5px;
+    background-color: rgb(124, 18, 18);
+    color: white;
+}
+
+.sobre-mi-content{
+    max-width: 100%;
+    margin: 20px;
+}
+
+.sobre-mi-content .skills{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.footer{
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 5px;
+    background-color: brown;
+    color: white;
+}
+
+@media screen and(max-whidth: 768px){
+    
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Deportes</title>
+    <link rel="stylesheet" href="encuesta.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ENCUESTA DE DEPORTES</h1>
+            <div class="controles-header">
+                <button id="reiniciar" class="btn-control">Reiniciar Encuesta</button>
+                <button id="cerrar" class="btn-control">Cerrar Encuesta</button>
+            </div>
+        </header>
+        
+        <main>
+            <section class="deportes-lista">
+                <div class="deporte" data-deporte="futbol">
+                    <h3>Fútbol</h3>
+                    <div class="contenedorbotar">
+                    <button class="btn-votar">VOTAR</button>
+                    <div class="contador">0</div>
+                    </div>
+                </div>
+                
+                <div class="deporte" data-deporte="baloncesto">
+                    <h3>Baloncesto</h3>
+                     <div class="contenedorbotar">
+                    <button class="btn-votar">VOTAR</button>
+                    <div class="contador">0</div>
+                    </div>
+                </div>
+                
+                <div class="deporte" data-deporte="tenis">
+                    <h3>Tenis</h3>
+                     <div class="contenedorbotar">
+                    <button class="btn-votar">VOTAR</button>
+                    <div class="contador">0</div>
+                    </div>
+                </div>
+                
+                <div class="deporte" data-deporte="natacion">
+                    <h3>Natación</h3>
+                     <div class="contenedorbotar">
+                    <button class="btn-votar">VOTAR</button>
+                    <div class="contador">0</div>
+                    </div>
+                </div>
+                
+                <div class="deporte" data-deporte="atletismo">
+                    <h3>Atletismo</h3>
+                     <div class="contenedorbotar">
+                    <button class="btn-votar">VOTAR</button>
+                    <div class="contador">0</div>
+                    </div>
+                </div>
+                
+                <div class="deporte" data-deporte="ciclismo">
+                    <h3>Ciclismo</h3>
+                     <div class="contenedorbotar">
+                    <button class="btn-votar">VOTAR</button>
+                    <div class="contador">0</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="estadisticas">
+                <div class="estadistica">
+                    <h2>Contador total:</h2>
+                    <div id="total-contador" class="total-contador">0</div>
+                </div>
+                
+                <div class="estadistica">
+                    <h2>Ganador:</h2>
+                    <div id="ganador-actual" class="ganador">-</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Incluir el archivo JavaScript -->
+    <script src="encuesta.js"></script>
+</body>
+</html>

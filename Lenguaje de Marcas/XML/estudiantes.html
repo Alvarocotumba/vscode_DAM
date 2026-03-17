@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de alumnos</title>
+</head>
+<body>
+    <h1>Lista de estudiantes</h1>
+    <button id="cargar">Cargar lista</button>
+    <div id="resultado"></div>
+
+    <script>
+
+            let listaEstudiantes = [];
+            const btnCargar = document.getElementById("cargar");
+            const resultado = document.getElementById("resultado");
+
+            function mostrarEstudiantes(lista){
+
+                resultado.innerHTML = `<p>Total: ${lista.length} estudiantes</p>`
+                
+                for(let e of lista){
+                    resultado.innerHTML += `
+                    <div class="estudiante">
+                        <p>${e.nombre}</p>
+                        <p>${e.edad} años</p>
+                        <p>${e.curso}</p>
+                    </div>`;    
+                            
+                }
+
+            }
+
+            btnCargar.addEventListener("click", function(){
+                   fetch("estudiantes.xml").then((response) => response.text())
+                   .then((data) => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data, "text/xml");
+                    const estudiante = xml.getElementsByTagName("estudiante");  
+
+                    listaEstudiantes = [];
+
+                    for(let e of estudiante){
+                        const nombre = e.getElementsByTagName("nombre")[0].textContent;
+                        const edad = e.getElementsByTagName("edad")[0].textContent;
+                        const curso = e.getElementsByTagName("curso")[0].textContent;
+
+                        listaEstudiantes.push({nombre, edad, curso});
+
+                    }
+
+                    mostrarEstudiantes(listaEstudiantes);
+                    });
+     
+            });
+
+         </script>
+    </body>
+</html>

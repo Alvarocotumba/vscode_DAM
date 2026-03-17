@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+    <link rel="stylesheet" href="ejercicio3.css">
+</head>
+<body>
+
+<h1>Lista de tareas</h1>
+
+<div id="contenedor">
+    <button id="cargar">Cargar tareas</button>
+
+    <label>Buscar tarea</label>
+    <input type="text" id="buscar" placeholder="Escribe una tarea...">
+
+    <select id="select">
+        <option value="todas">Todas</option>
+        <option value="alta">Alta</option>
+        <option value="media">Media</option>
+        <option value="baja">Baja</option>
+    </select>
+</div>
+
+<!-- ESTE DIV ES ESENCIAL PARA QUE FUNCIONE -->
+<div id="resultado"></div>
+
+<script src="ejercicio3.js"></script>
+</body>
+</html>

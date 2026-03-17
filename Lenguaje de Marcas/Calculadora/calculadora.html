@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Par/Impar</title>
+</head>
+<body>
+    <h1>Calculadora de Números</h1>
+    <p>Introduce un número para saber si es par o impar y calcular su cuadrado</p>
+    
+    <input type="number" id="numero" placeholder="Introduce un número">
+    <button id="mostrar">Mostrar</button>
+    
+    <p id="contadorTexto">Has enviado un número 0 veces</p>
+
+    <dialog id="modal">
+        <div>
+            <p id="mensaje"></p>
+            <button id="cerrar">Cerrar</button>
+        </div>
+    </dialog>
+
+    <script>
+        let contador = 0;
+        
+        const botonMostrar = document.getElementById("mostrar");
+        const botonCerrar = document.getElementById("cerrar");
+        const modal = document.getElementById("modal");
+        const mensaje = document.getElementById("mensaje");
+        const numeroInput = document.getElementById("numero");
+        const contadorTexto = document.getElementById("contadorTexto");
+        
+        botonMostrar.addEventListener("click", function(){
+            const numero = numeroInput.value.trim();
+            
+            if(numero === ""){
+                mensaje.textContent = "Debes introducir un número";
+            } else {
+                const num = parseInt(numero);
+                
+                const parImpar = num % 2 === 0 ? "par" : "impar";
+                
+                const cuadrado = num * num;
+                
+                mensaje.textContent = `El número ${num} es ${parImpar} y su cuadrado es ${cuadrado}`;
+                
+                contador++;
+                contadorTexto.textContent = `Has enviado un número ${contador} veces`;
+            }
+            
+            modal.showModal();
+        });
+        
+        botonCerrar.addEventListener("click", function(){
+            modal.close();
+        });
+    </script>
+</body>
+</html>

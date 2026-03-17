@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<galeria>
+  <elemento>
+    <titulo>Manzana Roja</titulo>
+    <categoria>Frutas</categoria>
+    <anio>2023</anio>
+    <descripcion>Manzana dulce y jugosa, perfecta para meriendas.</descripcion>
+    <imagen>img/Manzana.jpg</imagen>
+  </elemento>
+  <elemento>
+    <titulo>Plátano Maduro</titulo>
+    <categoria>Frutas</categoria>
+    <anio>2022</anio>
+    <descripcion>Plátano rico en potasio, ideal para batidos.</descripcion>
+    <imagen>img/Plátano.jpg</imagen>
+  </elemento>
+  <elemento>
+    <titulo>Naranja Valencia</titulo>
+    <categoria>Cítricos</categoria>
+    <anio>2021</anio>
+    <descripcion>Naranja ideal para zumo natural y vitamina C.</descripcion>
+    <imagen>img/Naranja.jpg</imagen>
+  </elemento>
+  <elemento>
+    <titulo>Fresa</titulo>
+    <categoria>Bayas</categoria>
+    <anio>2024</anio>
+    <descripcion>Fresas pequeñas y aromáticas, perfectas con nata.</descripcion>
+    <imagen>img/Fresa.jpg</imagen>
+  </elemento>
+  <elemento>
+    <titulo>Kiwi Verde</titulo>
+    <categoria>Exóticas</categoria>
+    <anio>2020</anio>
+    <descripcion>Kiwi ácido y refrescante, cortado en ensaladas.</descripcion>
+    <imagen>img/kiwi.jpg</imagen>
+  </elemento>
+  <elemento>
+    <titulo>Uva Morada</titulo>
+    <categoria>Bayas</categoria>
+    <anio>2019</anio>
+    <descripcion>Uvas jugosas para comer o hacer vino casero.</descripcion>
+    <imagen>img/Uva.jpg</imagen>
+  </elemento>
+</galeria>
+

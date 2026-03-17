@@ -1,0 +1,103 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: rgb(136, 180, 53);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.contenedor{
+    margin-top: 60px;
+}
+
+@keyframes fadeIn{
+    from{
+    opacity: 0;
+    }
+    to{
+    opacity: 1;
+    }
+}
+
+.fade-in{
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideIn{
+    from{
+    transform: translateX(-200px);
+    opacity: 0;
+    }
+    to{
+    transform: translateX(0);
+   opacity: 1;
+   background-color: blueviolet;
+    }
+}
+
+.slide-in{
+    animation: slideIn 2s ease-in;
+    animation-fill-mode: forwards   ;
+    animation-iteration-count: infinite;
+}
+
+@keyframes girar{
+    from{
+    transform: rotate(0deg);
+    }
+    to{
+    transform: rotate(360deg);
+    background-color: aqua;
+    }   
+}
+
+.rotate{
+    animation: girar 2s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rebote{
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(40px);
+    background-color: blueviolet;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.rebound{
+    animation: rebote 10s ease-in infinite;
+}
+
+.boton{
+    padding: 15px;
+    background-color: blue;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton:hover{
+    background-color: aqua;
+    transform: scale(1.1);
+}
+
+.caja{
+    width: 150px;
+    height: 100px;
+    background-color: rgb(218, 14, 14);
+    color: white;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

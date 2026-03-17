@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+    <title>Contador</title>
+</head>
+<body>
+    <h1>Registro</h1>
+    <p>Introduce un nombre para recibir un saludo</p>
+    <input type="text" id="nombre" placeholder="Introduce nombre">
+    <button id="abrir">Enviar</button>
+    <p id="contadorTexto">Has hecho click 0 veces </p>
+
+    <dialog id="modal">
+        <p id="mensaje"></p>
+        <button id="cerrar">Cerrar</button>
+    </dialog>
+
+    <script>
+        let contador = 0;
+
+        const botonAbrir = document.getElementById("abrir"); 
+        const botonCerrar = document.getElementById("cerrar"); 
+        const modal = document.getElementById("modal"); 
+        const mensaje = document.getElementById("mensaje"); 
+        const nombre = document.getElementById("nombre"); 
+        const contadorTexto = document.getElementById("contadorTexto");
+        
+        botonAbrir.addEventListener("click", function(){
+            
+            const nombreUsuario = nombre.value.trim();
+
+            if(nombreUsuario == ""){
+                mensaje.innerText = "Debes escribir un nombre";
+            }else{
+
+                mensaje.innerText = `¡ Hola, ${nombreUsuario}! Bienvenido!!!`;
+                contador++;
+                contadorTexto.innerText = `Has hecho click   ${contador} veces`;
+            }
+                modal.showModal();
+                nombre.value="";
+
+            
+        });
+
+        botonCerrar.addEventListener("click", function(){
+            modal.close();
+        });
+
+    </script>
+</body>
+</html>

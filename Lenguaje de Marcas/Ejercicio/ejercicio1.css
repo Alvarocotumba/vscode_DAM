@@ -1,0 +1,44 @@
+button[disabled]{
+    background-color: antiquewhite;
+    cursor: not-allowed;
+}
+
+button[type="submit"]{
+    background-color: blueviolet;
+    color: white;
+    cursor: pointer
+}
+
+button[type="reset"]{
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+
+button[data-color="rojo"]{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+button[data-color="verde"]{
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    opacity: 0.5;
+}
+
+button:active{
+    transform: scale(0.9);
+}
+
+button:focus{
+    outline: 2px solid black;
+}
+
+button:not([disabled]){
+    cursor: pointer;
+}

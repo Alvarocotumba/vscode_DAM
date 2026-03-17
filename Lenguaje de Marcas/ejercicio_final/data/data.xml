@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cursos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="data.xsd">
+
+    <curso id="c1">
+    <titulo>HTML y CSS</titulo>
+    <nivel>Principiante</nivel>
+    <horas>50</horas>
+    <categoria>Frontend</categoria>
+</curso>
+
+<curso id="c2">
+    <titulo>Javascript para web</titulo>
+    <nivel>Intermedio</nivel>
+    <horas>80</horas>
+    <categoria>Frontend</categoria>
+</curso>
+
+<curso id="c3">
+    <titulo>Base de datos</titulo>
+    <nivel>Principiante</nivel>
+    <horas>40</horas>
+    <categoria>Backend</categoria>
+</curso>
+
+<curso id="c4">
+    <titulo>Programación en java</titulo>
+    <nivel>Intermedio</nivel>
+    <horas>50</horas>
+    <categoria>Backend</categoria>
+</curso>
+
+</cursos>

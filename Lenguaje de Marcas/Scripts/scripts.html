@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <details>
+        <summary>mas informacion</summary>
+        <h2>WEBI WABO</h2>
+        <img src="webi_wabo.webp" alt="Dave el loco">
+    </details>
+<dialog id="alert">
+<p>WEBI WABO</p>
+<button id="close" onclick="document.getElementById('alert').close()">WEBI WABO!</button>
+</dialog>
+<button id="show" onclick="document.getElementById('alert').show()">Mostrar</button>
+
+<dialog id="uy_quieto">
+    <img src="uy_quieto.jpg" alt="Uy quieto">
+    <p>uy quieto</p>
+<button id="close" onclick="document.getElementById('uy_quieto').close()">Uy quieto</button>
+</dialog>
+<button id="show" onclick="document.getElementById('uy_quieto').show()">Uy quieto</button>
+
+<table id="tabla">
+<thead>
+    <tr><th>Nombre</th><th>Apellidos</th><th>Calificacion</th></tr>
+</thead>
+<tbody id="cuerpo_tabla"></tbody>
+
+<template id="usuario">
+
+    <tr>
+    <td class="nobre"></td>
+    <td class="apellido"></td>
+    <td class="calificacion"></td>
+    </tr>
+</template>
+
+</table>
+
+<script>
+    const nombres= [{nombre: "Ana", apellidos: "Garcia", calificacion: 9.5}, {nombre: "Javier", apellidos: "Garcia", calificacion: 8},
+     {nombre: "Daniel   ", apellidos: "Garcia", calificacion: 4}];
+    
+    const nombre = document.getElementById("usuario");
+    const tbody = document.getElementById("cuerpo_tabla");
+
+    nombre.forEach(user => {
+        const clonar = usuario.content.cloneNode(true);
+        clonar.querySelector(".nombre").textContent = user.nombre;
+        clonar.querySelector(".apellidos").textContent = user.apellidos;
+        clonar.querySelector(".calificacion").textContent = user.calificacion;
+        tbody.appendChild(clonar);
+    
+    })
+</script>
+</body>
+</html>

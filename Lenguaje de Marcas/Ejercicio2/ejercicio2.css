@@ -1,0 +1,40 @@
+div[data-user]{
+    border: 1px solid rgb(94, 88, 88);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+div[data-status="activo"]{
+    background-color: aquamarine;
+}
+
+div[data-status="inactivo"]{
+    background-color: rgb(241, 103, 103);
+    opacity: 0.6;
+}
+
+div[data-role="admin"]{
+    border-left: 5px solid gold
+}
+
+div[data-role="usuario"]{
+    border-left: 5px solid silver;
+}
+
+button[disabled]{
+    background-color: azure;
+    cursor: not-allowed;
+}
+
+button:not([disabled]){ 
+    background-color: chocolate;
+    cursor: pointer;
+}
+
+button:hover{
+    opacity: 0.9; 
+}
+
+button:active{
+    transform: scale(0.9);
+}

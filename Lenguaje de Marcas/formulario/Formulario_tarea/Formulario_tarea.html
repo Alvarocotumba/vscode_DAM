@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src= "main.js"> </script>
+    <title>Conexión de archivos</title>
+    <script lang="javascript">
+       saludo();
+    </script>
+</head>
+<body onload="  javascript:;">
+    <form action="/action.php" method="get" enctype="multiplataforma/form-data" target="_blank" no validate>
+    <label for="fname">Nombre:</label>
+    <input type="text" id="fname" name="fname"><br><br>
+    <label for="fname">Apellidos:</label>
+    <input type="text" id="fname" name="fname"><br><br>>
+<label for="edad">Edad:</label>
+<input type="number" id="edad" name="edad" min="1" max="120" required><br><br>
+<label for="email">Correo electronico:</label>
+<input type="email" id="email" name="email"><br><br>
+<select name="ciudad">
+        <optgroup label="Formacion profesional">
+            <option value="madrid">Madrid, FP </option>
+            <option value="albacete">Albacete, FP</option>
+            <option value="barcelona">Barcelona, FP</option>
+        </optgroup>
+
+        <fieldset>
+    <legend>Turno Preferido:</legend>
+
+    <input type="radio" id="manana" name="turno_preferido" value="manana" required>
+    <label for="manana">Mañana</label><br>
+
+    <input type="radio" id="tarde" name="turno_preferido" value="tarde">
+    <label for="tarde">Tarde</label><br>
+
+    <input type="radio" id="online" name="turno_preferido" value="online">
+    <label for="online">Online</label>
+</fieldset><br><br>
+
+<label for="interes">Área de interés:</label>
+<input list="sugerencias_interes" id="interes" name="interes">
+
+<datalist id="sugerencias_interes">
+    <option value="Desarrollo Web"></option>
+    <option value="Diseño Gráfico"></option>
+    <option value="Marketing Digital"></option>
+    <option value="Inteligencia Artificial"></option>
+    <option value="Ciencia de Datos"></option>
+    <option value="Ciberseguridad"></option>
+</datalist><br><br>
+
+ <label for="motivacion">Nivel de Motivación:</label>
+    
+    <output for="motivacion" id="outputValor"></output>
+
+    <div class="container">
+        <input type="range" id="motivacion" min="1" max="3" value="2" step="1">
+        
+        <div class="labels">
+            <span>Baja</span>
+            <span>Media</span>
+            <span>Alta</span>
+        </div>
+    </div><br><br>
+
+    <label for="archivos">Selecciona los archivos</label>
+   <input type="file" id="archivos" name="archivos" multiple/>
+   <button type="subimt">Enviar</button> <br><br>
+
+<div>
+    <input type="checkbox" id="terminos" name="terminos" value="aceptado">
+    <label for="terminos">Acepto los términos.</label>
+</div>
+
+<label for="checkbox">Enviar formulario:</label>
+<input type="submit" value='Enviar'><br><br>
+
+<label for="submitButton">resetear formulario:</label>
+    <input type="reset" value="Reiniciar Formulario">
+
+
+
+    </form>
+</body>
+</html>

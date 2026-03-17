@@ -1,0 +1,26 @@
+label,
+select,
+button,
+p {
+    display: block;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: aquamarine;
+    margin: 40px;
+    font-family: Arial;
+}
+
+h1 {
+    font-size: 40px;
+    color: rgb(224, 138, 9);
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+button:focus {
+    background-color: green;
+}

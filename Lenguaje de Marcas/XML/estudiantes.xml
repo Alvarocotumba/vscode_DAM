@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estudiantes xmlns:xsi="http://www.w3.org/2002/XMLSchema-instance" xsi:noNameSpaceSchemaLocation="estudiantes.xsd">
+
+    <estudiante>
+        <nombre>María</nombre>
+        <edad>16</edad>
+        <curso>1 Bachiller</curso>
+    </estudiante>
+
+    <estudiante>
+        <nombre>Juan</nombre>
+        <edad>13</edad>
+        <curso>2 Eso</curso>
+    </estudiante>
+
+    <estudiante>
+        <nombre>Jorge</nombre>
+        <edad>16</edad>
+        <curso>1 Bachiller</curso>
+    </estudiante>
+
+    <estudiante>
+        <nombre>María</nombre>
+        <edad>15</edad>
+        <curso>4Eso</curso>
+    </estudiante>
+
+</estudiantes>

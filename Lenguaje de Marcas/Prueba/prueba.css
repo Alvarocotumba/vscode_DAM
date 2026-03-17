@@ -1,0 +1,53 @@
+body{
+    background-color: aliceblue;
+    font-family: Arial;
+
+}
+
+#contenedor{
+    width: 420px;
+    background-color: white;
+    margin: 60px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    text-align: center;
+}
+
+.titulo{
+    color: red(47, 47,  141);
+    margin-bottom: 15px;
+}
+
+.texto{
+    color: rgb(34, 31,  31);
+    margin-bottom: 20px;
+}
+
+.input{
+    width: 90%;
+    padding: 6px;
+    margin-bottom: 25px;
+    border: 1px solid black;
+}
+
+.botones{
+    margin-bottom: 25px;
+}
+
+.button{
+    padding: 6px;
+    margin: 10px;
+    background-color: green(27, 155, 27);
+    color: white;
+    border: 1px solid darkgreen(9, 49, 9);
+    cursor: pointer 
+}
+
+button:hover{
+    background-color: orange;
+}
+
+#resultado{
+    color: darkred(104, 13, 13);
+    font-weight: bold;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio final</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="page-grid">
+   
+    <header class="header fade-in">
+        <div class="logo">Mis cursos</div>
+        <nav class="nav">
+            <a href="#">Inicio</a>
+            <a href="#">Cursos</a>
+            <a href="#">Contacto</a>
+    </nav>
+</header>
+
+<main class="main slideIn">
+    <section class="panel-controls">
+        <h1>Catálogo de cursos</h1>
+        <div class="controls">
+            <label for="filtroCategoria">Filtrar por categoria:</label>
+            <select id="filtro">
+                <option value="todos">Todos</option>
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+            </select>
+
+            <button id="ordenar" class="botonOrdenar">Ordenar A-Z</button>
+        </div>
+        <p id="infoCursos"></p>
+    </section>
+
+    <section id="tarjetas" class="tarjetas"></section>
+
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 - Ejercicio final - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE libro SYSTEM "pruebas.dtd">
+<libro xlmns:xsi="http://www.w3.org/2002/XMLSchema-instance" xsi:noNameSpaceSchemaLocation="pruebas.xsd">
+<titulo>Programacion en XML</titulo>
+<autor>Maria Perez</autor>
+<capitulos>
+<capitulo numero="1">
+ <paginas>44</paginas>
+ </capitulo>
+ <capitulo numero="2">Sintaxis</capitulo>
+ </capitulos>
+</libro>
