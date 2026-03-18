@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plantas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="datos.xsd">
+
+    <planta>
+        <titulo>Guisante 1</titulo>
+        <texto>Guisante 1 es Álvaro - Planta básica que dispara guisantes</texto>
+        <imagen>img/guisante1.jpg</imagen>
+    </planta>
+
+    <planta>
+        <titulo>Guisante 2</titulo>
+        <texto>Guisante 2 es Álvaro - Versión mejorada del guisante</texto>
+        <imagen>img/guisante2.jpg</imagen>
+    </planta>
+
+    <planta>
+        <titulo>Guisante 3</titulo>
+        <texto>Guisante 3 es Álvaro - Dispara más rápido</texto>
+        <imagen>img/guisante3.jpg</imagen>
+    </planta>
+
+    <planta>
+        <titulo>Guisante 4</titulo>
+        <texto>Guisante 4 es Álvaro - Planta de ataque</texto>
+        <imagen>img/guisante4.jpg</imagen>
+    </planta>
+
+    <planta>
+        <titulo>Guisante 5</titulo>
+        <texto>Guisante 5 es Álvaro - Variante especial</texto>
+        <imagen>img/guisante5.jpg</imagen>
+    </planta>
+
+    <planta>
+        <titulo>Guisante 6</titulo>
+        <texto>Guisante 6 es Álvaro - Defiende el jardín</texto>
+        <imagen>img/guisante6.jpg</imagen>
+    </planta>
+
+    <planta>
+        <titulo>Guisante 7</titulo>
+        <texto>Guisante 7 es Álvaro - Planta avanzada</texto>
+        <imagen>img/guisante7.jpg</imagen>
+    </planta>
+
+    <planta>
+        <titulo>Guisante 8</titulo>
+        <texto>Guisante 8 es Álvaro - Planta fuerte</texto>
+        <imagen>img/guisante8.jpg</imagen>
+    </planta>
+
+    <planta>
+        <titulo>Guisante 9</titulo>
+        <texto>Guisante 9 es Álvaro - Última planta</texto>
+        <imagen>img/guisante9.jpg</imagen>
+    </planta>
+
+</plantas>

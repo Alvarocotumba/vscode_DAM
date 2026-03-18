@@ -1,238 +1,199 @@
-// Variables globales
-let currentCards = [];
-let cardContainer = document.getElementById('card-container');
-
-// Cargar datos del XML al iniciar la página
 document.addEventListener('DOMContentLoaded', function() {
-    loadXMLData();
-    setupEventListeners();
-    setupModals();
+    cargarDatosXML();
+    configurarEventListeners();
 });
 
-// Configurar todos los event listeners
-function setupEventListeners() {
-    // Botón de búsqueda
-    document.getElementById('search-btn').addEventListener('click', searchCards);
+function configurarEventListeners() {
+    document.getElementById('boton-buscar').addEventListener('click', buscarTarjetas);
     
-    // Búsqueda con Enter
-    document.getElementById('search-input').addEventListener('keyup', function(e) {
-        if (e.key === 'Enter') {
-            searchCards();
-        }
+    document.getElementById('campo-busqueda').addEventListener('input', buscarTarjetas);
+    
+    document.getElementById('tema-select').addEventListener('change', cambiarTema);
+    
+    document.getElementById('boton-anadir').addEventListener('click', function() {
+        document.getElementById('modal-anadir').classList.add('activo');
     });
-    
-    // Selector de tema
-    document.getElementById('theme-select').addEventListener('change', changeTheme);
-    
-    // Botón añadir planta
-    document.getElementById('add-plant-btn').addEventListener('click', function() {
-        document.getElementById('add-modal').classList.add('show');
-    });
-    
-    // Cerrar modales
-    document.getElementById('close-modal').addEventListener('click', function() {
-        document.getElementById('add-modal').classList.remove('show');
-        document.getElementById('add-plant-form').reset();
-    });
-    
-    document.getElementById('close-theme-modal').addEventListener('click', function() {
-        document.getElementById('custom-theme-modal').classList.remove('show');
-    });
-    
-    // Formulario añadir planta
-    document.getElementById('add-plant-form').addEventListener('submit', addNewCard);
-    
-    // Formulario tema personalizado
-    document.getElementById('custom-theme-form').addEventListener('submit', applyCustomTheme);
-}
 
-// Configurar modales
-function setupModals() {
-    // Cerrar modales haciendo clic fuera
-    window.addEventListener('click', function(e) {
-        if (e.target.classList.contains('modal')) {
-            e.target.classList.remove('show');
-            document.getElementById('add-plant-form').reset();
+    document.getElementById('cerrar-modal').addEventListener('click', function() {
+        document.getElementById('modal-anadir').classList.remove('activo');
+        document.getElementById('nuevo-titulo').value = '';
+        document.getElementById('nueva-descripcion').value = '';
+        document.getElementById('nueva-imagen').value = '';
+    });
+
+    document.getElementById('cerrar-tema').addEventListener('click', function() {
+        document.getElementById('modal-tema').classList.remove('activo');
+    });
+
+    document.getElementById('guardar-planta').addEventListener('click', anadirNuevaTarjeta);
+    
+    document.getElementById('aplicar-tema').addEventListener('click', aplicarTemaPersonalizado);
+
+    window.addEventListener('click', function(evento) {
+        if (evento.target.classList.contains('modal')) {
+            evento.target.classList.remove('activo');
         }
     });
 }
 
-// Cargar datos desde XML
-function loadXMLData() {
-    fetch('data/data.xml')
-        .then(response => response.text())
-        .then(xmlText => {
+function cargarDatosXML() {
+    fetch('data/datos.xml')
+        .then(respuesta => respuesta.text())
+        .then(textoXML => {
             let parser = new DOMParser();
-            let xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-            let plantas = xmlDoc.getElementsByTagName('planta');
+            let documentoXML = parser.parseFromString(textoXML, 'text/xml');
+            let plantas = documentoXML.getElementsByTagName('planta');
             
-            currentCards = [];
+            let tarjetas = [];
             
-            for (let planta of plantas) {
-                let titulo = planta.getElementsByTagName('titulo')[0].textContent;
-                let texto = planta.getElementsByTagName('texto')[0].textContent;
-                let imagen = planta.getElementsByTagName('imagen')[0].textContent;
+            for (let i = 0; i < plantas.length; i++) {
+                let titulo = plantas[i].getElementsByTagName('titulo')[0].textContent;
+                let texto = plantas[i].getElementsByTagName('texto')[0].textContent;
+                let imagen = plantas[i].getElementsByTagName('imagen')[0].textContent;
                 
-                currentCards.push({ titulo, texto, imagen });
+                tarjetas.push({ titulo: titulo, texto: texto, imagen: imagen });
             }
             
-            renderCards(currentCards);
+            renderizarTarjetas(tarjetas);
         })
         .catch(error => {
-            console.error('Error cargando XML:', error);
-            cardContainer.innerHTML = '<p style="color: red;">Error cargando las plantas. Usando datos de ejemplo.</p>';
-            // Datos de ejemplo por si falla el XML
-            loadSampleData();
+            console.log('Error cargando XML, usando datos de respaldo');
+            let tarjetasRespaldo = [
+                { titulo: 'Guisante 1', texto: 'Guisante 1 es Álvaro - Planta básica', imagen: 'img/guisante1.jpg' },
+                { titulo: 'Guisante 2', texto: 'Guisante 2 es Álvaro - Versión mejorada', imagen: 'img/guisante2.jpg' },
+                { titulo: 'Guisante 3', texto: 'Guisante 3 es Álvaro - Dispara más rápido', imagen: 'img/guisante3.jpg' },
+                { titulo: 'Guisante 4', texto: 'Guisante 4 es Álvaro - Planta de ataque', imagen: 'img/guisante4.jpg' },
+                { titulo: 'Guisante 5', texto: 'Guisante 5 es Álvaro - Variante especial', imagen: 'img/guisante5.jpg' },
+                { titulo: 'Guisante 6', texto: 'Guisante 6 es Álvaro - Defiende el jardín', imagen: 'img/guisante6.jpg' },
+                { titulo: 'Guisante 7', texto: 'Guisante 7 es Álvaro - Planta avanzada', imagen: 'img/guisante7.jpg' },
+                { titulo: 'Guisante 8', texto: 'Guisante 8 es Álvaro - Planta fuerte', imagen: 'img/guisante8.jpg' },
+                { titulo: 'Guisante 9', texto: 'Guisante 9 es Álvaro - Última planta', imagen: 'img/guisante9.jpg' }
+            ];
+            renderizarTarjetas(tarjetasRespaldo);
         });
 }
 
-// Datos de ejemplo por si falla el XML
-function loadSampleData() {
-    currentCards = [];
-    for (let i = 1; i <= 9; i++) {
-        currentCards.push({
-            titulo: `Guisante ${i}`,
-            texto: `Descripción de la planta Guisante ${i}`,
-            imagen: `guisante${i}.png`
-        });
-    }
-    renderCards(currentCards);
-}
-
-// Renderizar tarjetas en el main
-function renderCards(cards) {
-    cardContainer.innerHTML = '<div class="card-container"></div>';
-    let container = cardContainer.querySelector('.card-container');
+function renderizarTarjetas(listaTarjetas) {
+    let contenedor = document.getElementById('contenedor-tarjetas');
+    contenedor.innerHTML = '';
     
-    cards.forEach(card => {
-        let cardElement = document.createElement('div');
-        cardElement.className = 'card';
-        cardElement.dataset.titulo = card.titulo.toLowerCase();
+    for (let i = 0; i < listaTarjetas.length; i++) {
+        let tarjeta = listaTarjetas[i];
         
-        // Imagen (simulada con emoji por ahora)
-        let imagenNum = card.titulo.replace('Guisante ', '');
-        let emoji = getPlantEmoji(imagenNum);
+        let divTarjeta = document.createElement('div');
+        divTarjeta.className = 'tarjeta';
+        divTarjeta.dataset.titulo = tarjeta.titulo.toLowerCase();
         
-        cardElement.innerHTML = `
-            <div class="card-image">${emoji}</div>
-            <h3>${card.titulo}</h3>
-            <p>${card.texto}</p>
-        `;
+        let divImagen = document.createElement('div');
+        divImagen.className = 'imagen-tarjeta';
         
-        container.appendChild(cardElement);
-    });
-}
-
-// Obtener emoji según el número de guisante
-function getPlantEmoji(num) {
-    const emojis = ['🌱', '🌿', '☘️', '🍀', '🌳', '🌲', '🌵', '🌻', '🌺'];
-    let index = parseInt(num) - 1;
-    if (index >= 0 && index < emojis.length) {
-        return emojis[index];
-    }
-    return '🌱';
-}
-
-// Función de búsqueda
-function searchCards() {
-    let searchText = document.getElementById('search-input').value.toLowerCase();
-    let cards = document.querySelectorAll('.card');
-    
-    cards.forEach(card => {
-        let titulo = card.dataset.titulo;
-        if (titulo.includes(searchText) || searchText === '') {
-            card.classList.remove('hidden');
-        } else {
-            card.classList.add('hidden');
-        }
-    });
-}
-
-// Cambiar tema
-function changeTheme() {
-    let theme = document.getElementById('theme-select').value;
-    let body = document.body;
-    
-    // Resetear estilos personalizados
-    body.style = '';
-    document.getElementById('main-header').style = '';
-    document.getElementById('card-container').style = '';
-    document.getElementById('main-footer').style = '';
-    
-    switch(theme) {
-        case 'light':
-            body.classList.remove('dark-mode');
-            break;
-        case 'dark':
-            body.classList.add('dark-mode');
-            break;
-        case 'custom':
-            body.classList.remove('dark-mode');
-            document.getElementById('custom-theme-modal').classList.add('show');
-            break;
-    }
-}
-
-// Aplicar tema personalizado
-function applyCustomTheme(e) {
-    e.preventDefault();
-    
-    let headerColor = document.getElementById('header-color').value;
-    let mainColor = document.getElementById('main-color').value;
-    let footerColor = document.getElementById('footer-color').value;
-    
-    document.getElementById('main-header').style.backgroundColor = headerColor;
-    document.getElementById('main-header').style.borderColor = '#000';
-    
-    document.getElementById('card-container').style.backgroundColor = mainColor;
-    document.getElementById('card-container').style.borderColor = '#000';
-    
-    document.getElementById('main-footer').style.backgroundColor = footerColor;
-    document.getElementById('main-footer').style.borderColor = '#000';
-    
-    document.getElementById('custom-theme-modal').classList.remove('show');
-}
-
-// Añadir nueva tarjeta
-function addNewCard(e) {
-    e.preventDefault();
-    
-    let titulo = document.getElementById('plant-title').value;
-    let texto = document.getElementById('plant-desc').value;
-    let imagenFile = document.getElementById('plant-image').files[0];
-    
-    if (imagenFile) {
-        let reader = new FileReader();
-        
-        reader.onload = function(element) {
-            // Crear nueva tarjeta
-            let container = document.querySelector('.card-container');
-            let cardElement = document.createElement('div');
-            cardElement.className = 'card';
-            cardElement.dataset.titulo = titulo.toLowerCase();
-            
-            // Usar emoji por ahora (en proyecto real sería la imagen)
-            let emoji = '🌱';
-            
-            cardElement.innerHTML = `
-                <div class="card-image">${emoji}</div>
-                <h3>${titulo}</h3>
-                <p>${texto}</p>
-            `;
-            
-            container.appendChild(cardElement);
-            
-            // Actualizar array de tarjetas
-            currentCards.push({ titulo, texto, imagen: imagenFile.name });
-            
-            // Cerrar modal y resetear formulario
-            document.getElementById('add-modal').classList.remove('show');
-            document.getElementById('add-plant-form').reset();
+        let img = document.createElement('img');
+        img.src = tarjeta.imagen;
+        img.alt = tarjeta.titulo;
+        img.onerror = function() {
+            this.src = 'https://via.placeholder.com/250x150?text=Sin+imagen';
         };
         
-        reader.readAsDataURL(imagenFile);
+        divImagen.appendChild(img);
+        
+        let h3 = document.createElement('h3');
+        h3.textContent = tarjeta.titulo;
+        
+        let p = document.createElement('p');
+        p.textContent = tarjeta.texto;
+        
+        divTarjeta.appendChild(divImagen);
+        divTarjeta.appendChild(h3);
+        divTarjeta.appendChild(p);
+        
+        contenedor.appendChild(divTarjeta);
     }
 }
 
-// Inicializar todo cuando carga la página
-console.log('Script cargado correctamente');
+function buscarTarjetas() {
+    let texto = document.getElementById('campo-busqueda').value.toLowerCase();
+    let tarjetas = document.querySelectorAll('.tarjeta');
+    
+    for (let i = 0; i < tarjetas.length; i++) {
+        let titulo = tarjetas[i].dataset.titulo;
+        if (titulo.includes(texto) || texto === '') {
+            tarjetas[i].classList.remove('oculta');
+        } else {
+            tarjetas[i].classList.add('oculta');
+        }
+    }
+}
+
+function cambiarTema() {
+    let tema = document.getElementById('tema-select').value;
+    let body = document.body;
+    
+    body.classList.remove('modo-oscuro');
+    
+    if (tema === 'oscuro') {
+        body.classList.add('modo-oscuro');
+    } else if (tema === 'personalizado') {
+        document.getElementById('modal-tema').classList.add('activo');
+    }
+}
+
+function aplicarTemaPersonalizado() {
+    let colorHeader = document.getElementById('color-header').value;
+    let colorMain = document.getElementById('color-main').value;
+    let colorFooter = document.getElementById('color-footer').value;
+    
+    document.querySelector('.cabecera').style.backgroundColor = colorHeader;
+    document.querySelector('.zona-tarjetas').style.backgroundColor = colorMain;
+    document.querySelector('.pie-pagina').style.backgroundColor = colorFooter;
+    
+    document.getElementById('modal-tema').classList.remove('activo');
+}
+
+function anadirNuevaTarjeta() {
+    let titulo = document.getElementById('nuevo-titulo').value;
+    let texto = document.getElementById('nueva-descripcion').value;
+    let archivoImagen = document.getElementById('nueva-imagen').files[0];
+    
+    if (!titulo || !texto || !archivoImagen) {
+        alert('Completa todos los campos');
+        return;
+    }
+    
+    let lector = new FileReader();
+    
+    lector.onload = function(evento) {
+        let contenedor = document.getElementById('contenedor-tarjetas');
+        
+        let divTarjeta = document.createElement('div');
+        divTarjeta.className = 'tarjeta';
+        divTarjeta.dataset.titulo = titulo.toLowerCase();
+        
+        let divImagen = document.createElement('div');
+        divImagen.className = 'imagen-tarjeta';
+        
+        let img = document.createElement('img');
+        img.src = evento.target.result;
+        img.alt = titulo;
+        
+        divImagen.appendChild(img);
+        
+        let h3 = document.createElement('h3');
+        h3.textContent = titulo;
+        
+        let p = document.createElement('p');
+        p.textContent = texto;
+        
+        divTarjeta.appendChild(divImagen);
+        divTarjeta.appendChild(h3);
+        divTarjeta.appendChild(p);
+        
+        contenedor.appendChild(divTarjeta);
+        
+        document.getElementById('modal-anadir').classList.remove('activo');
+        document.getElementById('nuevo-titulo').value = '';
+        document.getElementById('nueva-descripcion').value = '';
+        document.getElementById('nueva-imagen').value = '';
+    };
+    
+    lector.readAsDataURL(archivoImagen);
+}

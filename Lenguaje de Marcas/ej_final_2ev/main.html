@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Galería - Plantas vs Zombies</title>
+    <link rel="stylesheet" href="estilos/main.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        
+        <header class="cabecera">
+            <h1>MI JARDÍN DE PLANTAS</h1>
+            <p>Colección completa de defensores del jardín</p>
+        </header>
+
+        <div class="barra-controles">
+            
+            <div class="buscador">
+                <input type="text" id="campo-busqueda" placeholder="Buscar planta">
+                <button id="boton-buscar">Buscar</button>
+            </div>
+
+            <div class="selector-tema">
+                <select id="tema-select">
+                    <option value="claro">Modo claro</option>
+                    <option value="oscuro">Modo oscuro</option>
+                    <option value="personalizado">Modo personalizado</option>
+                </select>
+            </div>
+
+            <div class="anadir">
+                <button id="boton-anadir">Añadir planta</button>
+            </div>
+
+        </div>
+
+        <main class="zona-tarjetas" id="contenedor-tarjetas"></main>
+
+        <footer class="pie-pagina">
+            <p>Proyecto LM - PVZ</p>
+        </footer>
+
+    </div>
+
+    <div id="modal-anadir" class="modal">
+        <div class="contenido-modal">
+            <h2>Añadir nueva planta</h2>
+            <input type="text" id="nuevo-titulo" placeholder="Título">
+            <textarea id="nueva-descripcion" placeholder="Descripción"></textarea>
+            <input type="file" id="nueva-imagen" accept="image/*">
+            <div class="botones-modal">
+                <button id="guardar-planta">Guardar</button>
+                <button id="cerrar-modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-tema" class="modal">
+        <div class="contenido-modal">
+            <h2>Personalizar colores</h2>
+            <label>Color del header:</label>
+            <input type="color" id="color-header" value="#ffffff">
+            <label>Color del main:</label>
+            <input type="color" id="color-main" value="#ffffff">
+            <label>Color del footer:</label>
+            <input type="color" id="color-footer" value="#ffffff">
+            <div class="botones-modal">
+                <button id="aplicar-tema">Aplicar</button>
+                <button id="cerrar-tema">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/script.js"></script>
+</body>
+</html>
